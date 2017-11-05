@@ -185,6 +185,9 @@ class DistributedOptimizer(tf.train.Optimizer):
         else:
             return gradients
 
+    def apply_gradients(self, *args, **kwargs):
+        return self._optimizer.apply_gradients(*args, **kwargs)
+
     def _apply_dense(self, *args, **kwargs):
         """Calls this same method on the underlying optimizer."""
         return self._optimizer._apply_dense(*args, **kwargs)
